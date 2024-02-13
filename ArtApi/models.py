@@ -6,4 +6,4 @@ from django.db.models import Model, CharField, ImageField
 class Artwork(Model):
     title = CharField(max_length=50)
     author = CharField(max_length=50)
-    image = ImageField(default=None, upload_to="images/")
+    image = CharField(max_length=222)
