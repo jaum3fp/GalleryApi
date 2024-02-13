@@ -1,4 +1,4 @@
-from django.db.models import Model, CharField, ImageField
+from django.db.models import Model, CharField, ImageField, TextField
 
 # Create your models here.
 
@@ -6,4 +6,4 @@ from django.db.models import Model, CharField, ImageField
 class Artwork(Model):
     title = CharField(max_length=50)
     author = CharField(max_length=50)
-    image = CharField(max_length=222)
+    image = TextField()
