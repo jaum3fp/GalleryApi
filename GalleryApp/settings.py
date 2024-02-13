@@ -86,13 +86,13 @@ WSGI_APPLICATION = 'GalleryApp.wsgi.application'
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'NAME': ,
 #     }
 # }
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgre',
+        default=BASE_DIR / 'db.sqlite3',
         conn_max_age=600
         )}
 
@@ -133,6 +133,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'
+
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media-files/'
 MEDIA_ROOT = BASE_DIR / 'files/'
